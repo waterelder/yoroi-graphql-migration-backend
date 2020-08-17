@@ -275,7 +275,7 @@ const getStatus = async (req: Request, res:  Response) => {
       }
     }
   }
-  res.send({ isServerOk: true, isMaintenance: false }); 
+  res.send({ isServerOk: true, isMaintenance: false, serverTime: Date.now() });
 };
 
 const routes : Route[] = [ { path: "/v2/bestblock"
