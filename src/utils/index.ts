@@ -97,8 +97,6 @@ export const validateHistoryReq = (addressRequestLimit:number, apiResponseLimit:
     return {kind:"error", errMsg: "body.after exists but body.after.block does not"};
   if(("limit" in data) && typeof data.limit !== "number")
     return {kind:"error", errMsg: " body.limit must be a number"};
-  if(("limit" in data) && data.limit > apiResponseLimit)
-    return {kind:"error", errMsg: `body.limit parameter exceeds api limit: ${apiResponseLimit}`};
 
   const validatedAddresses = validateAddressesReq(addressRequestLimit, data.addresses);
   switch(validatedAddresses.kind){
